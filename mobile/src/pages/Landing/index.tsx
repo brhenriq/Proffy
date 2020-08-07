@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 
@@ -18,6 +18,10 @@ function Landing() {
     navigate('GiveClasses');
   }
 
+  function handleNavigateStudyPage(){
+    navigate('StudyTabs');
+  }
+
   return (
     <View style={styles.container}>
       <Image source={landingImage} style={styles.banner}/>
@@ -28,7 +32,10 @@ function Landing() {
       </Text>
 
       <View style={styles.buttonsContainer}>
-        <RectButton style={[styles.button, styles.buttonPrimary]}>
+        <RectButton 
+          style={[styles.button, styles.buttonPrimary]} 
+          onPress={handleNavigateStudyPage}
+        >
           <Image source={studyIcon} />
 
           <Text style={styles.buttonText}>Estudar</Text>
